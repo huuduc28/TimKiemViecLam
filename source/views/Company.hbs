@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        .nav-link {
+            color: black;
+        }
+
+        body {
+            background-color: rgb(228, 226, 226);
+        }
+
+        .header {
+            display: flex;
+            margin-top: 30px;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 30px;
+        }
+
+        input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .search button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search button:hover {
+            background: #ccc;
+        }
+
+        #filter {
+            margin-bottom: 15px
+        }
+
+        .filter {
+            display: none;
+            font-size: 25px !important;
+        }
+
+        .filter:hover {
+            color: #6e6d6d;
+            cursor: pointer;
+        } 
+
+        .number-company {
+            text-align: right !important;
+            margin-right: 20px;
+        }
+
+        .navigation {
+            margin-bottom: 25px;
+        }
+
+        .noilamviec { 
+            height: 200px; 
+            overflow-y: scroll;
+        }
+
+        .quymo {
+            margin-top: 30px;
+        }
+
+        .item {
+            display: block;
+            background-color: #fff;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            transition: transform linear 0.1s;
+            will-change: transform;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 10px 10px 5px #aaaaaa;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .item:hover {
+            box-shadow: rgb(0 0 0 / 5%) 0px 1px 20px 0px;
+            transform: translateY(-2px);
+        }
+
+        .item-name {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        .item-jobNumber {
+            color: #598db8;
+            margin-left: 5px;
+        }
+
+        .next-page {
+            display: flex;
+        }
+
+        .next-page_body {
+            margin-top: 48px;
+            margin-bottom: 56px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .next-left,
+        .next-right,
+        .num-page,
+        .num-page_muchmore {
+            padding: 0 25px;
+            text-decoration: none;
+            color: rgb(116, 115, 115);
+            font-weight: 250;
+        }
+
+        .num-page:hover,
+        .num-page_muchmore:hover {
+            color: #fc5656;
+        }
+
+        .num-page.num-page_here {
+            background-color: #989696;  
+            border-radius: 2px; 
+            padding: 5px 15px;
+            margin: 0 10px;
+        }
+
+        .num-page.num-page_here:hover {
+            color: rgb(206, 206, 206);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 990px){
+            #showNav {
+                display: none;
+            }
+
+            #filter {
+                display: flex; 
+                justify-content: space-between; 
+            }
+
+            .filter {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="" alt="Avatar Logo" style="width:110px;margin-left: 20%;"
+                    class="rounded-pill">
+            </a>
+            <!-- Links -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Việc làm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hồ sơ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Công ty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Phát triển sự nghiệp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Công cụ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">CÁC CÔNG TY HÀNG ĐẦU</h1>
+                <div class="search">
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12" id="filter">
+                    <div id="filterBtn" class="filter">
+                        <i class="fa fa-filter"></i>
+                    </div>
+                    <p class="number-company">
+                        <strong>8</strong> Công ty được tìm thấy
+                    </p>
+                </div>
+
+                <div class="col-lg-2">
+                    <div id="showNav" class="navigation">
+                        <div class="col-sm-12">
+                            <div class="noilamviec">
+                                <h5 class="mb-2">Nơi làm việc</h5>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck1">
+                                    An Giang
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck2">
+                                    <label class="form-check-label" for="gridCheck2">
+                                    Bình Dương
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck3">
+                                    <label class="form-check-label" for="gridCheck3">
+                                    Bình Định
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck4">
+                                    <label class="form-check-label" for="gridCheck4">
+                                    Bắc Giang
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck5">
+                                    <label class="form-check-label" for="gridCheck5">
+                                    Bạc Liêu
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck6">
+                                    <label class="form-check-label" for="gridCheck6">
+                                    Bắc Ninh
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck7">
+                                    <label class="form-check-label" for="gridCheck7">
+                                    Bình Phước
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck8">
+                                    <label class="form-check-label" for="gridCheck8">
+                                    Bình Thuận
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck9">
+                                    <label class="form-check-label" for="gridCheck9">
+                                    Cà Mau
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck10">
+                                    <label class="form-check-label" for="gridCheck10">
+                                    Cần Thơ
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck11">
+                                    <label class="form-check-label" for="gridCheck11">
+                                    Cao Bằng
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck12">
+                                    <label class="form-check-label" for="gridCheck12">
+                                    Đà Nẵng
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck13">
+                                    <label class="form-check-label" for="gridCheck13">
+                                    Đắk Lắk
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck14">
+                                    <label class="form-check-label" for="gridCheck14">
+                                    Đồng Tháp
+                                    </label>
+                                </div> 
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                    <label class="form-check-label" for="gridCheck15">
+                                    Khác
+                                    </label>
+                                </div> 
+                            </div>
+                            <div class="quymo">
+                                <h5 class="mb-2">Quy mô</h5>
+                                <form>
+                                    <div class="form-radio mt-1">
+                                        <input class="form-radio-input" type="radio" id="gridRadio1">
+                                        <label class="form-radio-label" for="gridRadio1">
+                                        1 - 99 nhân viên
+                                        </label>
+                                    </div>
+                                    <div class="form-radio mt-1">
+                                        <input class="form-radio-input" type="radio" id="gridRadio2">
+                                        <label class="form-radio-label" for="gridRadio2">
+                                        100 - 499 nhân viên
+                                        </label>
+                                    </div>
+                                    <div class="form-radio mt-1">
+                                        <input class="form-radio-input" type="radio" id="gridRadio3">
+                                        <label class="form-radio-label" for="gridRadio3">
+                                        500 - 999 nhân viên
+                                        </label>
+                                    </div>
+                                    <div class="form-radio mt-1">
+                                        <input class="form-radio-input" type="radio" id="gridRadio4">
+                                        <label class="form-radio-label" for="gridRadio4">
+                                        1000 - ... nhân viên
+                                        </label>
+                                    </div>        
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="row col-lg-10">
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-4">
+                        <a class="item" href="#">
+                            <img src="" alt="" width="100%" height="140px">
+                            <h3 class="item-name">CÔNG TY CỔ PHẦN NÔNG NGHIỆP</h3>
+                            <p class="item-jobNumber">
+                                <span>8</span> 
+                                việc đang được tuyển
+                            </p>
+                            <p class="item-location">Bình Dương</p>
+                    
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="next-page_body">
+                            <a href="" class="next-left">
+                               <i class="fa fa-chevron-left"></i>
+                            </a>
+                            <a class="num-page num-page_here" href="">1</a>
+                            <a class="num-page" href="">2</a>
+                            <a class="num-page" href="">3</a>
+                            <a class="num-page" href="">4</a>
+                            <a class="num-page" href="">5</a>
+                            <a class="num-page_muchmore" href="">...</a>
+                            <a href="" class="next-right">
+                                <i class="fa fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            document.getElementById("showNav").style.display = 'none';
+            var acc = document.getElementById('filterBtn');
+            acc.onclick = function() {
+                if (document.getElementById("showNav").style.display === 'none'){
+                    document.getElementById("showNav").style.display = 'block';
+                }
+                else {
+                    document.getElementById("showNav").style.display = 'none';
+                }
+            };
+        } else {
+            document.getElementById("showNav").style.display = 'block';
+        }
+    }
+
+    
+    var x = window.matchMedia("(max-width: 990px)")
+    myFunction(x) 
+    x.addListener(myFunction) 
+</script>

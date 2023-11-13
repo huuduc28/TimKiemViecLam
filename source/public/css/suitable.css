@@ -1,0 +1,370 @@
+.box-search-job {
+    width: 1519px;
+    height: 80px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-left: 200px;
+}
+
+.nameJob {
+    width: 308px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #333333;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 11px 0px 11px 20px;
+    float: left;
+
+}
+
+#career {
+    width: 210px;
+    height: 40px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #000000;
+    font-size: 14px;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    color: #333333;
+    font-family: Arial;
+}
+
+body {
+    background-color: rgb(228, 226, 226);
+}
+
+.propose {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #333333;
+    line-height: 20px;
+    float: left;
+}
+
+.propose .propose-job .img-company img {
+    width: 80%;
+    height: 100%;
+}
+
+.propose .propose-job {
+    width: 98%;
+    height: 100%;
+    background-color: #f2fbf6;
+    border-radius: 5px;
+    color: #333333;
+    display: flex;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.propose .btn {
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.propose .propose-job .caption #salary {
+    width: 20%;
+    height: 25%;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0px 3px 5px 0px;
+    padding: 4px 8px;
+}
+
+.propose .propose-job .caption #address {
+    width: 20%;
+    height: 25%;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0px 3px 5px 0px;
+    padding: 4px 8px;
+}
+
+.propose .propose-job .caption #time {
+    width: 20%;
+    height: 25%;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0px 3px 5px 0px;
+    padding: 4px 8px;
+}
+
+.propose .propose-job .caption {
+    width: 100%;
+    height: 25%;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 0px 0px 0px 20px;
+}
+
+.banner {
+    background-color: #00b14f;
+    border-radius: 5px 5px 0px 0px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 32px 16px;
+}
+
+.sidebar {
+    width: 347px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    float: right;
+}
+
+.sidebar img {
+    width: 347px;
+    height: 182px;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    float: left;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.profile .avatatr img {
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+}
+
+.profile .avatatr {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 15px 20px;
+    float: left;
+}
+
+.profile .infor {
+    padding: 12px 20px 20px 40px;
+}
+
+.profile .infor #updateAccount {
+    width: 60%;
+    height: 40%;
+    background-color: #27ae60;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.profile .infor span {
+    width: 60%;
+    height: 40%;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 17.1429px;
+    padding: 3px 7px;
+    background-color: darkgrey;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.findJob .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.findJob .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.findJob .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.findJob .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.findJob input:checked+.slider {
+    background-color: #ee0202;
+}
+
+.findJob input:focus+.slider {
+    box-shadow: 0 0 1px #f70707;
+}
+
+.findJob input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.findJob .slider.round {
+    border-radius: 34px;
+}
+
+.findJob .slider.round:before {
+    border-radius: 50%;
+}
+
+.findJob #title {
+    color: #ee0202;
+    float: right;
+    padding-right: 50px;
+}
+
+.findJob {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-left: 20px;
+}
+
+.accepJob .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.accepJob .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.accepJob .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.accepJob .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.accepJob input:checked+.slider {
+    background-color: #27ae60;
+}
+
+.accepJob input:focus+.slider {
+    box-shadow: 0 0 1px #27ae60;
+}
+
+.accepJob input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.accepJob .slider.round {
+    border-radius: 34px;
+}
+
+.accepJob .slider.round:before {
+    border-radius: 50%;
+}
+
+.accepJob #title {
+    color: #27ae60;
+    float: right;
+    padding-right: 50px;
+}
+
+.accepJob {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#crerateCV {
+    align-items: center;
+    margin-top: 1%;
+    margin-left: 25%;
+    width: 50%;
+    height: 7%;
+}
+
+.title-NTD {
+    margin-top: 10%;
+}

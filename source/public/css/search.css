@@ -1,0 +1,159 @@
+* {
+    font-size: 1.5rem;
+}
+
+.banner-box {
+    margin: 0;
+    overflow: hidden;
+    height: 110px;
+    background: rgba(33,150,243,.1);
+}
+
+.banner-box .search-box {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    margin-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.form-search .search-main {
+    display: flex;
+    justify-content: center;
+    padding: 24px 10px;
+    margin: 0 71px;
+    background-color: transparent;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    /* background-color: var(--main-color); */
+    /* background-color: rgba(123, 214, 240, 0.2); */
+}
+
+.form-search .search-main .input-search {
+    width: 377px;
+    padding-left: 16px;
+    margin: 0 14px 0 0px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    outline: none;
+}
+
+.form-search .search-main .input-search:hover {
+    outline: 1px solid var(--main-color);
+}
+
+.form-search .search-main .input-submit {
+    border-radius: 5px;
+    padding: 13px 8px;
+    font-weight: 600;
+    background-color: var(--main-color);
+    border: none;
+}
+
+.form-search .filter {
+    display: none;
+    animation: slide-top-down ease .5s;
+}
+
+.wrapper {
+    /* background-color: rgba(156, 151, 151, 0.1); */
+    background-color: rgb(204, 204, 204, 0.3);
+}
+
+.breadscrum {
+    font-size: 1.4rem;
+    padding: 20px 0px 15px 0px;
+}
+
+.breadscrum a {
+    color: black;
+    font-weight: 600;
+}
+
+.found-result {
+    margin-bottom: 15px;
+}
+
+.filter-search .filter-search-item {
+    margin-left: 20px;
+}
+
+/* .content .list-recruitment {
+} */
+
+.list-recruitment .recruitment-item {
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 12px;
+}
+
+/* .content .sub-information {
+    
+} */
+
+.recruitment-item .recruit-image {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.recruit-image img {
+    width: 100%;
+}
+
+.recruitment-item .recruit-content {
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recruit-content .recruit-heading {
+    font-weight: 600;
+}
+
+.recruit-content .recruit-company {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.recruit-content .tag-list {
+    display: flex;
+}
+
+.tag-list .tag-item {
+    background-color: #ccc;
+    margin-left: 12px;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.tag-list .first-tag {
+    margin-left: 0;
+}
+
+.sub-information .relate-key {
+    border-radius: 4px;
+    background-color: var(--secondary-color);
+    padding: 8px 32px;
+}
+
+.relate-key ul {
+    padding: 0;
+}
+
+.relate-heading {
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.sub-information .adver {
+    margin-top: 16px;
+}
+
+.sub-information .adver img {
+    width: 100%;
+}

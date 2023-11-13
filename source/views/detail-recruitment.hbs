@@ -1,0 +1,14 @@
+<div class="container">
+    <h5 class="mt-3 text-center">{{recruitment.title}}</h5>
+    <img src="/images/recruitments/{{recruitment.image}}" alt="Ảnh tuyển dụng" width="120px">
+    <div> Địa chỉ: {{recruitment.address.street}}, {{recruitment.address.district.name}}, {{recruitment.address.province.name}} </div>
+    <div>Lương: {{recruitment.salary}}</div>
+    <div>Hình thức làm việc: {{recruitment.workingWay}}</div>
+    <div>Vị trí: {{recruitment.position}}</div>
+    <div>Kinh nghiệm: {{recruitment.experience}}</div>
+    <div>Mô tả: {{recruitment.description}}</div>
+    <div>Kinh nghiệm: {{recruitment.requirement}}</div>
+    <div>Lợi ích: {{recruitment.benefit}}</div>
+    {{!-- <span>Ngày đến hạn: {{formatDMY deadlineSubmis}}</span> --}}
+    <a href="/recruiter">Quay lại</a>
+</div>

@@ -1,0 +1,227 @@
+* {
+    font-size: 1.5rem;
+}
+
+.banner-box {
+    margin: 0;
+    overflow: hidden;
+    height: 110px;
+    background: rgba(33, 150, 243, .1);
+}
+
+.banner-box .search-box {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    margin-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.form-search .search-main {
+    display: flex;
+    justify-content: center;
+    padding: 24px 10px;
+    margin: 0 71px;
+    background-color: transparent;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    /* background-color: var(--main-color); */
+    /* background-color: rgba(123, 214, 240, 0.2); */
+}
+
+.form-search .search-main .input-search {
+    width: 377px;
+    padding-left: 16px;
+    margin: 0 14px 0 0px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    outline: none;
+}
+
+.form-search .search-main .input-search:hover {
+    outline: 1px solid var(--main-color);
+}
+
+.form-search .search-main .input-submit {
+    border-radius: 5px;
+    padding: 13px 8px;
+    font-weight: 600;
+    background-color: var(--main-color);
+    border: none;
+}
+
+.form-search .filter {
+    display: none;
+    animation: slide-top-down ease .5s;
+}
+
+.breadscrum {
+    font-size: 1.4rem;
+    padding: 20px 0px 15px 0px;
+}
+
+.breadscrum a {
+    color: black;
+    font-weight: 600;
+}
+
+.wrapper {
+    background-color: rgb(204, 204, 204, 0.3);
+}
+
+.header-section {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.header-section .header-img {
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.header-section .header-img img {
+    width: 100%;
+}
+
+.header-content {
+    padding: 8px 12px;
+}
+
+.content-heading {
+    font-weight: 600;
+}
+
+.content-company {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.content-due {
+    font-weight: 500;
+}
+
+.operations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations .btn-oper {
+    width: 140px;
+    height: 40px;
+    padding: 12px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 3px;
+}
+
+.operations .btn-apply {
+    background-color: var(--bs-link-hover-color);
+    color: #fff;
+}
+
+.operations .btn-save {
+    color: #fff;
+    background-color: var(--bs-danger)
+}
+
+/* .main-content {
+    margin-top: 24px;
+} */
+
+.detail-title {
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.box-item,
+.general-infor,
+.recruitment-detail {
+    border-radius: 4px;
+    padding: 24px;
+    border: 1px solid rgb(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.detail-heading {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.detail-paragraph {
+    line-height: 2.3rem;
+}
+
+.general-detail .adver {
+    margin-top: 16px;
+}
+
+.general-detail .adver img {
+    width: 100%;
+}
+
+.share-job {
+    display: flex;
+    align-items: center;
+}
+
+.share-url {
+    padding: 12px 4px;
+    background-color: rgba(204, 204, 204, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-btn i {
+    font-size: 2.5rem;
+    padding-left: 8px;
+}
+
+#toast-message {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 999999;
+}
+
+#reportModal {
+    --bs-btn-font-size: 2rem;
+}
+
+.btn {
+    --bs-btn-font-size: 1.5rem;
+}
+
+.report-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+h6 {
+    font-size: 1.6rem;
+}
+
+#reportForm textarea {
+    font-size: 1.4rem;
+}
+
+.modal-header {
+    background-color: var(--bs-danger);
+}
+
+.uploadReport {
+    margin-left: 4px;
+}

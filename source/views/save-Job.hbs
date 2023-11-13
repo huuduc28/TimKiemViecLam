@@ -1,0 +1,189 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/saveJob.css">
+<style>
+    #applied-form {
+        --bs-btn-font-size: 2rem;
+    }
+
+    .btn {
+        --bs-btn-font-size: 1.5rem;
+    }
+
+    .modal-title {
+        font-size: 1.8rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+    }
+
+    #applied-form textarea {
+        font-size: 1.4rem;
+    }
+
+    #applied-form label {
+        font-size: 1.4rem;
+
+    }
+
+    .modal-header {
+        background-color: var(--main-color);
+    }
+
+    .uploadReport {
+        margin-left: 4px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-1 "></div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="saved">
+                    <div class="banner">
+                        <h2>Việc làm đã lưu</h2>
+                        <h5>Xem lại danh sách những việc làm mà bạn đã lưu trước đó </h5>
+                    </div>
+                    {{#if saveJob}}
+                    {{#each saveJob}}
+                    <div class="save">
+                        <div class="saved-job">
+                            <div class="img-company">
+                                <a href="/recruitment/detail/{{slug}}-{{_id}}">
+                                    <img src="/images/recruitments/{{image}}">
+                                </a>
+                            </div>
+                            <div class="caption">
+                                <a href="/recruitment/detail/{{slug}}-{{_id}}">
+                                    <h3 style="color: black;">
+                                        {{title}}
+                                    </h3>
+                                    <a>
+                                        CÔNG TY TNHH NEWAY GROUP
+                                    </a><br>
+                                    <a>{{address.street}} , {{address.district.name}} ,
+                                        {{address.province.name}}</a><br>
+                                    <label id="salary">{{salary}}</label>
+                                    <label id="address"> {{address.province.name}}</label>
+                                    <label id="time"></label>
+                                </a>
+
+                            </div>
+                            <div class="action">
+                                <button data-id="{{_id}}" data-name="{{title}}" data-img="{{image}}"
+                                    class="btn btn-info applied-btn" data-bs-toggle="modal"
+                                    data-bs-target="#applied-form" style="margin-left: 3%;">Ứng
+                                    tuyển</button>
+                                <button data-reID="{{_id}}" class="btn btn-secondary deleteJob"
+                                    style="margin-left: 1%;">Bỏ lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                    <div class="empty-job">
+                        <div class="img-empty">
+                            <img src="/images/empty.png" alt="empty apply" id="image-empty">
+                        </div>
+                        <div class="caption">
+                            <p>
+                                Bạn chưa lưu công việc nào!
+                            </p>
+                            <p>
+                                Bắt đầu sự nghiệp mơ ước với hàng nghìn việc làm chất lượng tại TopCV
+                            </p>
+                        </div>
+                        <a href="/" type="button" class="btn btn-info">Tìm việc ngay</a>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-lg-3 d-none d-lg-block ">
+                <div class="advertise"><img src="/images/advertise.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Applied dialog -->
+    <div class="modal fade" id="applied-form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ứng tuyển <strong id="name-job">image.jpg</strong></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <img id="imageCompany" src="" width="20%" height="20%" alt="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Tải CV từ máy tính</label>
+                            <input type="file" class="form-control" id="file1" name="file1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Thư giới thiệu</label>
+                            <textarea name="letter" class="form-control" rows="8"
+                                placeholder="Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt)."></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button id="submit-btn" type="submit" class="btn btn-danger" data-bs-dismiss="modal"
+                            id="confirmBtn" data-id="{{_id}}">Nộp</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    window.onload = function () {
+        let deleteBtn = document.querySelectorAll('.deleteJob');
+        for (let i = 0; i < deleteBtn.length; i++) {
+            deleteBtn[i].addEventListener('click', function (e) {
+                let id = this.getAttribute('data-reID')
+                let evt = this
+                $.ajax({
+                    url: `/recruitment/savedJob/${id}`,
+                    method: 'GET'
+                })
+                    .done(function (res) {
+                        if (res.code == 0) {
+                            window.location.href = '/recruitment/cong-viec-da-luu'
+                        }
+                    })
+                    .fail(function (err) {
+                        console.log(err)
+                    })
+            })
+        }
+        const date = new Date({{ dateCreate }});
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+    console.log(formattedDate);
+    document.getElementById('time').innerHTML = formattedDate;
+        //load image company 
+    }
+    const appliedBtn = document.querySelectorAll('.applied-btn')
+    for (let i = 0; i < appliedBtn.length; i++) {
+        appliedBtn[i].addEventListener('click', function (e) {
+            const jobName = event.target.getAttribute('data-name');
+            document.querySelector('#name-job').innerHTML = jobName;
+            let id = this.getAttribute('data-id')
+            document.querySelector('form').action = '/recruitment/uploadApplied/' + id;
+
+            let nameimg = this.getAttribute('data-img')
+            document.getElementById('imageCompany').setAttribute('src', '/images/recruitments/' + nameimg);
+        })
+    }
+</script>

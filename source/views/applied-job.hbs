@@ -1,0 +1,126 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/applied.css">
+</style>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-1 col-md-2 col-sm-4"></div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="applied">
+                    <div class="banner">
+                        <h2>Việc làm đã ứng tuyển</h2>
+                        <h5>Xem lại danh sách những việc làm mà bạn đã ứng tuyển trước đó </h5>
+                    </div>
+                    {{#if appliedJobs}}
+                    <div class="appliedJob">
+                        {{#each appliedJobs}}
+                        <div class="propose">
+                            <div class="propose-job">
+                                <div class="img-company">
+                                    <img src="/images/recruitments/{{image}}">
+                                </div>
+                                <div class="caption">
+                                    <h3>
+                                        {{title}}
+                                    </h3>
+                                    <a>
+                                        CÔNG TY TNHH NEWAY GROUP
+                                    </a><br>
+                                    <a>{{address.street}} , {{address.district.name}} ,
+                                        {{address.province.name}}</a><br>
+                                    <label id="salary">{{salary}}</label>
+                                    <label id="address"> {{address.province.name}}</label>
+                                    <label id="time">6 tháng trước</label>
+                                </div>
+                                <a href="/recruitment/detail/{{slug}}-{{_id}}" type="button" class="btn btn-info">Chi tiết</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <div class="empty-job">
+                        <div class="img-empty">
+                            <img src="/images/empty.png" alt="empty apply" id="image-empty">
+                        </div>
+                        <div class="caption">
+                            <p>
+                                Bạn chưa ứng tuyển công việc nào!
+                            </p>
+                            <p>
+                                Bắt đầu sự nghiệp mơ ước với hàng nghìn việc làm chất lượng tại TopCV
+                            </p>
+                        </div>
+                        <a href="/" type="button" class="btn btn-info" style="margin-bottom: 3%;">Tìm việc ngay</a>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="advertise"><img src="/images/advertise.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+    {{#if recruitments}}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-1 col-md-2 col-sm-4"></div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="propose">
+                    <h3 style="margin-left: 1%;padding-top: 1%;">Việc làm phù hợp với bạn</h3>
+                    <a style="margin-left: 1%;font-size: small; ">Để nhận được gợi ý việc làm chính xác hơn, hãy
+                        tùy
+                        chỉnh cài
+                        đặt gợi ý việc
+                        làm.</a>
+                    <div class="propose">
+                        {{#each recruitments}}
+                        <div class="propose">
+                            <div class="propose-job">
+                                <div class="img-company">
+                                    <a href="/recruitment/detail/{{slug}}-{{_id}}">
+                                        <img src="/images/recruitments/{{image}}">
+                                    </a>
+                                    {{!-- <div class="company-img" style="background-image: url({{image}})"></div> --}}
+                                </div>
+                                <div class="caption">
+                                    <a href="/recruitment/detail/{{slug}}-{{_id}}">
+                                        <h3 style="color: black;">
+                                            {{title}}
+                                        </h3>
+                                        <a>
+                                            CÔNG TY TNHH NEWAY GROUP
+                                        </a><br>
+                                        <a>{{address.street}} , {{address.district.name}} ,
+                                            {{address.province.name}}</a><br>
+                                        <label id="salary">{{salary}}</label>
+                                        <label id="address">{{address.province.name}}</label>
+                                        <label id="timePropose"></label>
+                                    </a>
+                                </div>
+                                <a type="button" href="/recruitment/detail/{{slug}}-{{_id}}" class="btn btn-info"
+                                    style="margin-left: 11%;">Chi tiết</a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <a id="findJob" href="/" type="button" class="btn btn-info">Tìm việc ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</body>
+<script>
+    window.onload = function () {
+        const date = new Date({{ dateCreate }});
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+        console.log(formattedDate);
+        document.getElementById('timePropose').innerHTML = formattedDate;
+        document.getElementById('time').innerHTML = formattedDate;
+    }
+</script>

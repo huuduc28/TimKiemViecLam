@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/css/search.css">
+
+<div class="banner-box row">
+    <div class="search-box col-lg-6 col-md-12 col-xs-12">
+        <form action="/recruitment/search" class="form-search">
+            <div class="search-main">
+                <input class="input-search" type="text" placeholder="Nhập từ khóa để tìm kiếm" id="key-search" name="q" value="{{query}}">
+                <input class="input-submit" type="submit" value="Tìm việc ngay">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="breadscrum">
+                <a href="/"> Trang chủ</a> /
+                <a href="/recruitment/search?q={{query}}"> Tìm việc {{query}}</a>
+            </div>
+        </div>
+
+        <p class="found-result">Tìm thấy <strong>{{count}}</strong> việc làm phù hợp</p>
+        <div class="col-lg-12 col-md-12 col-xs-12 filter-search">
+            <label>Ưu tiên hiển thị</label>
+            <label for="update-new" class="filter-search-item">
+                <input type="radio" value="update-new" name="filter-search" id="update-new">
+                Cập nhật gần nhất
+            </label>
+            <label for="quickly-recruit" class="filter-search-item">
+                <input type="radio" value="quickly-recruit" name="filter-search" id="quickly-recruit">
+                Cần tuyển gấp
+            </label>
+            <label for="new-recruit" class="filter-search-item">
+                <input type="radio" value="new-recruit" name="filter-search" id="new-recruit">
+                Tin mới đăng
+            </label>
+        </div>
+
+        <main class="content row mt-4">
+            <div class="col-lg-8">
+                <div class="list-recruitment">
+                    {{#each recruitments}}
+                    <div class="recruitment-item">
+                        <div style="cursor: pointer;" class="recruit-image" onclick="location.href='/recruitment/detail/{{slug}}-{{_id}}'">
+                            <img src="/images/recruitments/{{image}}" alt="Ảnh tuyển dụng">
+                        </div>
+                        <div class="recruit-content">
+                            <p style="cursor: pointer;" onclick="location.href='/recruitment/detail/{{slug}}-{{_id}}'" class="recruit-heading">{{title}}
+                            </p>
+                            <p class="recruit-company">{{companyName}}</p>
+                            <div class="tag-list">
+                                <div class="tag-item first-tag">
+                                    {{salary}}
+                                </div>
+
+                                <div class="tag-item">
+                                    {{address.province.name}}
+                                </div>
+
+                                <div class="tag-item">
+                                    {{workingWay}}
+                                </div>
+
+                                <div class="tag-item">
+                                    {{experience}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sub-information">
+                    <div class="relate-key">
+                        <p class="relate-heading">Từ khóa liên quan</p>
+                        <ul style="margin-bottom: 8px;">
+                            <li>
+                                <a href="">việc làm chuyên viên phân tích dữ liệu</a>
+                            </li>
+                            <li>
+                                <a href="">việc làm chuyên viên phân tích dữ liệu</a>
+                            </li>
+                            <li>
+                                <a href="">việc làm chuyên viên phân tích dữ liệu</a>
+                            </li>
+                            <li>
+                                <a href="">việc làm chuyên viên phân tích dữ liệu</a>
+                            </li>
+                            <li>
+                                <a href="">việc làm chuyên viên phân tích dữ liệu</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="adver">
+                        <img src="/images/advertise.png" alt="Ảnh quảng cáo">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

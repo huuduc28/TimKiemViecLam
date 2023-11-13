@@ -1,0 +1,54 @@
+<div class="container">
+    <h4 class="mt-4 text-center">Thêm mới tin tuyển dụng</h4>
+    <form action="/recruiter/add" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title" class="label-control">Tiêu đề</label>
+            <input type="text" class="form-control" name="title" id="title">
+        </div>
+
+        <input type="file" name="image" id="image" class="form-control mt-3">
+
+        <div class="form-group">
+            <label for="" class="label-control">Lương</label>
+            <input type="text" class="form-control" name="salary" id="salary">
+        </div>
+
+        <div class="form-group">
+            <label for="workingWay" class="label-control">Hình thức làm việc</label>
+            <select class="form-control" name="workingWay" id="workingWay">
+                <option value="Partime">Partime</option>
+                <option value="Fulltime">Fulltime</option>
+                <option value="Thực tập">Thực tập</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="position" class="label-control">Vị trí công việc</label>
+            <input type="text" class="form-control" name="position" id="position">
+        </div>
+
+        <div class="form-group">
+            <label for="experience" class="label-control">Kinh nghiệm</label>
+            <input type="text" class="form-control" name="experience" id="experience">
+        </div>
+
+        <div class="form-group">
+            <label for="description" class="label-control">Mô tả</label>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="requirement" class="label-control">Yêu cầu</label>
+            <textarea class="form-control" name="requirement" id="requirement" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="benefit" class="label-control">Quyền lợi</label>
+            <textarea class="form-control" name="benefit" id="benefit" cols="30" rows="10"></textarea>
+        </div>
+
+        <button class="btn btn-success mt-3" type="submit">
+            Thêm mới
+        </button>
+    </form>
+</div>

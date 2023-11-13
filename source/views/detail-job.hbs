@@ -1,0 +1,229 @@
+<link rel="stylesheet" href="/css/detail-job.css">
+
+<div class="banner-box row">
+    <div class="search-box col-lg-6 col-md-12 col-xs-12">
+        <form action="/search" class="form-search">
+            <div class="search-main">
+                <input class="input-search" type="text" placeholder="Nhập từ khóa để tìm kiếm" id="key-search">
+                <input class="input-submit" type="submit" value="Tìm việc ngay">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="breadscrum">
+                <a href="/">Trang chủ</a> /
+                <a href=""> Tìm việc Analysist</a> /
+                <a href="">Chuyên viên xây dựng định mức và phân tích dữ liệu</a>
+            </div>
+        </div>
+
+        {{#if detail}}
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="header-section">
+                <div class="header-img col-lg-2">
+                    <img src="/images/recruitments/{{detail.image}}" alt="Avatar">
+                </div>
+                <div class="header-content col-lg-8">
+                    <p class="content-heading">{{detail.title}}</p>
+                    <p class="content-company">{{company.name}}</p>
+                    <p class="content-due">Hạn nộp hồ sơ: {{formatDMY detail.deadlineSubmis}}</p>
+                </div>
+                <div class="operations col-lg-2">
+                    <button data-id="{{detail._id}}" data-name="{{detail.title}}" data-img="{{detail.image}}" class="btn-oper btn-apply" data-bs-toggle="modal"
+                        data-bs-target="#applied-form">Ứng tuyển ngay</button> <br>
+                    <button class="btn-oper btn-save">Lưu tin</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="row mt-4">
+            <div class="main-content col-lg-8">
+                <div class="recruitment-detail">
+                    <p class="detail-title">Chi tiết tin tuyển dụng</p>
+                    <p class="detail-heading">Mô tả</p>
+                    <p class="detail-paragraph">{{detail.description}}</p>
+                    <p class="detail-heading">Yêu cầu</p>
+                    <p class="detail-paragraph">
+                        {{detail.requirement}}
+                    </p>
+                    <p class="detail-heading">Quyền lợi</p>
+                    <p class="detail-paragraph">
+                        {{detail.benefit}}
+                    </p>
+                </div>
+
+                <div class="company-infor box-item mt-4">
+                    <p class="weight-600 detail-title">Thông tin công ty</p>
+                    <p class="detail-heading">Giới thiệu</p>
+                    <p class="detail-paragraph">{{company.introduce}}</p>
+
+                    <p class="detail-heading">Quy mô</p>
+                    <p class="detail-paragraph">Hơn {{company.employees}} nhân viên</p>
+
+                    <p class="detail-heading">Địa điểm</p>
+                    <p class="detail-paragraph">{{company.address}}</p>
+
+                    <p class="weight-600 detail-title">Việc làm cùng công ty</p>
+                </div>
+
+                <div class="box-item mt-4">
+                    <p class="weight-600 detail-title">Việc làm liên quan</p>
+                </div>
+            </div>
+
+            <div class="general-detail col-lg-4">
+                <div class="general-infor">
+                    <p class="weight-600 detail-title">Thông tin chung</p>
+                    <div class="row">
+                        <p class="detail-paragraph col-md-6">Mức lương: <strong>{{detail.salary}}</strong></p>
+                        <p class="detail-paragraph col-md-6">Vị trí: <strong>{{detail.position}}</strong></p>
+                        <p class="detail-paragraph col-md-12">Hình thức làm việc: <strong>{{detail.workingWay}}</strong>
+                        </p>
+                        <p class="detail-paragraph col-md-12">Kinh nghiệm: <strong>{{detail.experience}}</strong></p>
+                        <p class="detail-paragraph col-md-12">Địa chỉ:
+                            <strong>{{detail.address.street}},{{detail.address.district.name}},
+                                {{detail.address.province.name}}</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="general-infor mt-4">
+                    <p class="weight-600 detail-title">Chia sẻ tin tuyển dụng</p>
+                    <div class="share-job">
+                        <div class="share-url">
+                            {{shareURL}}
+                        </div>
+                        <div class="copy-btn" onclick="copyURL()" style="cursor: pointer;">
+                            <i class="fa-solid fa-copy"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="general-infor mt-4">
+                    <p class="weight-600 detail-title">Báo cáo tin tuyển dụng</p>
+                    <div class="row report-wrap">
+                        <p class="detail-paragraph col-md-8">Hãy báo cáo tin tuyển dụng mà bạn cho rằng đang lừa đảo
+                            hoặc giả mạo</p>
+                        <div class="col-md-4">
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reportModal">Báo
+                                cáo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adver">
+                    <img src="/images/advertise.png" alt="Ảnh quảng cáo">
+                </div>
+            </div>
+        </main>
+        {{/if}}
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">Báo cáo tin tuyển dụng</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6>Bạn có chắc chắn muốn báo cáo tin tuyển dụng này không ? Hãy cho chúng tôi biết thêm thông tin nhé
+                </h6>
+                <form method="post" action="/report/uploadReport" class="mt-4" id="reportForm"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title" class="label-control weight-600">Tiêu đề</label>
+                        <input style="font-size: 1.4rem" type="text" name="title" id="title" class="form-control mt-3" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="description" class="label-control weight-600">Mô tả</label>
+                        <textarea name="description" id="description" cols="30" rows="10"
+                            class="form-control mt-3" required></textarea>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="image" class="label-control weight-600">Ảnh minh chứng</label>
+                        <input class="uploadReport" type="file" name="image" id="image" multiple required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-close" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button form="reportForm" type="submit" class="btn btn-danger">Báo cáo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Toast message --}}
+<div class="toast-container position-fixed bottom-0 end-0 p-5">
+    <div style="font-size: 1.4rem !important; padding: 12px !important;" class="toast text-bg-success border-0 align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Thành công</strong>
+            <button type="button" class="btn-close me-2 m-auto close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body" id="toast-msg" style="font-size: 1.4rem !important; padding: 12px !important;">
+            Copy đường dẫn thành công
+        </div>
+    </div>
+</div>
+
+<!-- Applied dialog -->
+<div class="modal fade" id="applied-form">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ứng tuyển <strong id="name-job">image.jpg</strong></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" id="formApplied" action="" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <img id="imageCompany" src="" width="20%" height="20%" alt="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Tải CV từ máy tính</label>
+                        <input type="file" class="form-control" id="file1" name="file1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Thư giới thiệu</label>
+                        <textarea name="letter" class="form-control" rows="8"
+                            placeholder="Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt)."></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="submit-btn" type="submit" class="btn btn-danger" data-bs-dismiss="modal" id="confirmBtn"
+                        data-id="{{_id}}">Nộp</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const appliedBtn = document.querySelectorAll('.btn-apply')
+    for (let i = 0; i < appliedBtn.length; i++) {
+        appliedBtn[i].addEventListener('click', function (e) {
+            const jobName = event.target.getAttribute('data-name');
+            document.querySelector('#name-job').innerHTML = jobName;
+            let id = this.getAttribute('data-id')
+            document.getElementById('formApplied').setAttribute('action', '/recruitment/uploadApplied/' + id);
+             let nameimg = this.getAttribute('data-img')
+            document.getElementById('imageCompany').setAttribute('src', '/images/recruitments/' + nameimg);
+        })
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></>
+<script src="/js/detail-job.js"></script>

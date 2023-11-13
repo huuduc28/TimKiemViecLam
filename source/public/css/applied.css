@@ -1,0 +1,180 @@
+body {
+    background-color: rgb(228, 226, 226);
+}
+
+.applied {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #333333;
+    line-height: 20px;
+}
+
+.propose {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #333333;
+    line-height: 20px;
+}
+
+.empty-job #image-empty {
+    width: 25%;
+    height: 50%;
+    color: #333333;
+    margin-left: 37%;
+    margin-top: 10%;
+}
+
+.empty-job .caption {
+    color: #777;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-bottom: 5%;
+    padding-top: 2%;
+    text-align: center;
+}
+
+.advertise {
+    width: 105%;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+
+.advertise img {
+    width: 105%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.propose .propose-job .img-company img {
+    width: 80%;
+    height: 80%;
+}
+
+.propose .propose-job .img-company {
+    width: 20%;
+    height: 20%;
+    align-items: center;
+    text-align: center;
+}
+
+.propose .propose-job {
+    width: 97%;
+    height: 5%;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    color: #333333;
+    display: flex;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin: 1% 1% 1%;
+    align-items: center;
+    border: 1px solid var(--solid-color);
+
+}
+.propose .propose-job .btn {
+    width: 15%;
+    height: 5%;
+    margin-right: 2%;
+    margin-left: 11%;   
+}
+
+.propose .propose-job .caption #salary {
+    width: 80px;
+    height: 24px;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 1% 1% 2% 0%;
+    padding: 1% 2%;
+}
+
+.propose .propose-job .caption #address {
+    height: 24px;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 1% 1% 2% 0%;
+    padding: 1% 2%;
+}
+
+.propose .propose-job .caption #time {
+    height: 24px;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 1% 1% 2% 0%;
+    padding: 1% 2%;
+}
+
+.propose .propose-job .caption #timePropose {
+    height: 24px;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: #636d78;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 1% 1% 2% 0%;
+    padding: 1% 2%;
+}
+.propose .propose-job .caption {
+    width: 396px;
+    height: 102px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.banner {
+    background-color: var(--main-color) !important;
+    border-radius: 5px 5px 0px 0px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 20px;
+    padding: 32px 16px;
+}
+
+.empty-job a {
+    width: 120px;
+    height: 40px;
+    margin-left: 42%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 16px;
+}
+
+#findJob {
+    width: 120px;
+    height: 40px;
+    margin-left: 42%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 16px;
+    margin-bottom: 2%;
+}
